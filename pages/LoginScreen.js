@@ -88,7 +88,7 @@ const LoginScreen = ({ navigation }) => {
                     fontSize: hp(1.8)
                 }}
             >
-                Don't have an account? <Text onPress={() => {navigation.navigate("RegisterScreen")}}
+                Don't have an account? <Text onPress={() => {navigation.navigate("Register")}}
                 style={{fontWeight: 'bold', color: '#0165ff'}}>
                     Register
                 </Text>

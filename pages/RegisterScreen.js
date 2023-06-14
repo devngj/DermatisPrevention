@@ -3,6 +3,26 @@ import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet, Image  } f
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import { Input } from '@rneui/themed'
 import LoginScreen from './LoginScreen';
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCyeASCq4qLx0x0CeNKG2i17hvjJEcH0CU",
+  authDomain: "dermatis-5fbbc.firebaseapp.com",
+  projectId: "dermatis-5fbbc",
+  storageBucket: "dermatis-5fbbc.appspot.com",
+  messagingSenderId: "747374242824",
+  appId: "1:747374242824:web:782e3320ca7370435875bd",
+  measurementId: "G-DGME54RR5Q"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
 const RegisterScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
@@ -34,8 +54,8 @@ const RegisterScreen = ({ navigation }) => {
                 paddingHorizontal: hp(4)
             }}
             leftIcon={{
-                type:'font-awesome',
-                name: '',
+                type:'material',
+                name: 'badge',
                 color:'#7b879b',
                 size: hp(2.5)
             }}
@@ -91,7 +111,7 @@ const RegisterScreen = ({ navigation }) => {
                     fontWeight: 'bold',
                     textAlign: 'center',
                     fontSize: hp(2)
-                }} onPress={() => {navigation.navigate("LoginScreen")}}    
+                }} onPress={() => {navigation.navigate("Login")}}    
             >
             Register
             </Text>
