@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet, Image, SafeAreaView, ActivityIndicator } from 'react-native';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import { Input } from '@rneui/themed'
-import LoginScreen from './LoginScreen';
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import Toast from "react-native-toast-message";
 // Import the functions you need from the SDKs you need
@@ -242,7 +241,7 @@ const RegisterScreen = ({ navigation }) => {
                             fontSize: hp(1.8)
                         }}
                     >
-                        Don't have an account? <Text onPress={() => { navigation.navigate("LoginScreen") }}
+                        Don't have an account? <Text onPress={() => { navigation.navigate("Login") }}
                             style={{ fontWeight: 'bold', color: '#0165ff' }}>
                             Login
                         </Text>
