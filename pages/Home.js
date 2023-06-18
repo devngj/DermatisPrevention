@@ -6,6 +6,15 @@ export default function Home() {
     return (
         <View style={styles.container}>
             <ScrollView>
+                <Text style={{
+                    color:'black',
+                    fontSize: hp(5),
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                    padding: hp(6)
+                }}>
+                Hello, User
+                </Text>
                 <Image 
                     source={require('../assets/chair.jpeg')}
                     style={{
