@@ -15,34 +15,82 @@ export default function Home() {
             <ScrollView>
                 <Text style={{
                     color:'black',
-                    fontSize: hp(5),
+                    fontSize: hp(4),
                     fontWeight: 'bold',
-                    textAlign: 'center',
-                    padding: hp(6)
+                    marginTop: hp(8),
+                    marginLeft: hp(2)
                 }}>
-                Hello, User
+                Welcome Back
                 </Text>
-                <ImageBackground
-                    source={require('../assets/chair.jpeg')}
+                <View
                     style={{
-                        width: wp(70),
-                        height: hp(40),
-                        position: 'relative'
+                        backgroundColor: '#e9e4d8',
+                        height: hp(50),
+                        margin: hp(2),
+                        borderRadius: hp(2)
                     }}
                 >
-                    <View
+
+                <Text
+                    style={{
+                        color: 'black',
+                        fontSize: hp(3),
+                        marginLeft: hp(2),
+                        marginTop: hp(5),
+                        marginBottom: hp(4),
+                        fontWeight: 'bold'
+                    }}
+                >
+                    Current Pressure Data
+                </Text>
+                    <ImageBackground
+                        source={require('../assets/chair.png')}
                         style={{
-                            width: hp(4),
-                            height: hp(4),
-                            backgroundColor: 'rgba(220, 20, 60, ' + String(sensor1) + ')',
-                            position: 'absolute',
-                            top: '40%',
-                            left: '30%',
-                            borderRadius: hp(20),
-                            justifyContent: 'center',
-                            alignItems: 'center'
+                            width: wp(60),
+                            height: hp(30),
+                            position: 'relative',
+                            marginLeft: 'auto',
+                            marginRight: 'auto'
                         }}
+                        resizeMode="contain"
                     >
+                        <View
+                            style={{
+                                width: hp(4),
+                                height: hp(4),
+                                backgroundColor: 'rgba(220, 20, 60, ' + String(sensor1) + ')',
+                                position: 'absolute',
+                                top: '40%',
+                                left: '30%',
+                                borderRadius: hp(20),
+                                justifyContent: 'center',
+                                alignItems: 'center'
+                            }}
+                        >
+                            <Text
+                                style={{
+                                    color: 'white',
+                                    opacity: 1,
+                                    fontWeight: 'bold',
+                                    fontSize: hp(1.5)
+                                }}
+                            >
+                                50
+                            </Text>
+                        </View>
+                        <View
+                            style={{
+                                width: hp(4),
+                                height: hp(4),
+                                backgroundColor: 'rgba(220, 20, 60, ' + String(sensor2) + ')',
+                                position: 'absolute',
+                                top: '40%',
+                                left: '60%',
+                                borderRadius: hp(20),
+                                justifyContent: 'center',
+                                alignItems: 'center'
+                            }}
+                        >
                         <Text
                             style={{
                                 color: 'white',
@@ -53,108 +101,85 @@ export default function Home() {
                         >
                             50
                         </Text>
-                    </View>
-                    <View
-                        style={{
-                            width: hp(4),
-                            height: hp(4),
-                            backgroundColor: 'rgba(220, 20, 60, ' + String(sensor2) + ')',
-                            position: 'absolute',
-                            top: '40%',
-                            left: '60%',
-                            borderRadius: hp(20),
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                        }}
-                    >
-                    <Text
-                        style={{
-                            color: 'white',
-                            opacity: 1,
-                            fontWeight: 'bold',
-                            fontSize: hp(1.5)
-                        }}
-                    >
-                        50
-                    </Text>
 
-                    </View>
-                    <View
-                        style={{
-                            width: hp(4),
-                            height: hp(4),
-                            backgroundColor: 'rgba(220, 20, 60, ' + String(sensor3) + ')',
-                            position: 'absolute',
-                            top: '55%',
-                            left: '20%',
-                            borderRadius: hp(20),
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                        }}
-                    >
-                    <Text
-                        style={{
-                            color: 'white',
-                            opacity: 1,
-                            fontWeight: 'bold',
-                            fontSize: hp(1.5)
-                        }}
-                    >
-                        50
-                    </Text>
+                        </View>
+                        <View
+                            style={{
+                                width: hp(4),
+                                height: hp(4),
+                                backgroundColor: 'rgba(220, 20, 60, ' + String(sensor3) + ')',
+                                position: 'absolute',
+                                top: '55%',
+                                left: '20%',
+                                borderRadius: hp(20),
+                                justifyContent: 'center',
+                                alignItems: 'center'
+                            }}
+                        >
+                        <Text
+                            style={{
+                                color: 'white',
+                                opacity: 1,
+                                fontWeight: 'bold',
+                                fontSize: hp(1.5)
+                            }}
+                        >
+                            50
+                        </Text>
 
-                    </View>
-                    <View
-                        style={{
-                            width: hp(4),
-                            height: hp(4),
-                            backgroundColor: 'rgba(220, 20, 60, ' + String(sensor4) + ')',
-                            position: 'absolute',
-                            top: '55%',
-                            left: '70%',
-                            borderRadius: hp(20),
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                        }}
-                    >
-                    <Text
-                        style={{
-                            color: 'white',
-                            opacity: 1,
-                            fontWeight: 'bold',
-                            fontSize: hp(1.5)
-                        }}
-                    >
-                        50
-                    </Text>
+                        </View>
+                        <View
+                            style={{
+                                width: hp(4),
+                                height: hp(4),
+                                backgroundColor: 'rgba(220, 20, 60, ' + String(sensor4) + ')',
+                                position: 'absolute',
+                                top: '55%',
+                                left: '70%',
+                                borderRadius: hp(20),
+                                justifyContent: 'center',
+                                alignItems: 'center'
+                            }}
+                        >
+                        <Text
+                            style={{
+                                color: 'white',
+                                opacity: 1,
+                                fontWeight: 'bold',
+                                fontSize: hp(1.5)
+                            }}
+                        >
+                            50
+                        </Text>
 
-                    </View>
-                    <View
-                        style={{
-                            width: hp(4),
-                            height: hp(4),
-                            backgroundColor: 'rgba(220, 20, 60, ' + String(sensor5) + ')',
-                            position: 'absolute',
-                            top: '60%',
-                            left: '45%',
-                            borderRadius: hp(20),
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                        }}
-                    >
-                    <Text
-                        style={{
-                            color: 'white',
-                            opacity: 1,
-                            fontWeight: 'bold',
-                            fontSize: hp(1.5)
-                        }}
-                    >
-                        50
-                    </Text>
+                        </View>
+                        <View
+                            style={{
+                                width: hp(4),
+                                height: hp(4),
+                                backgroundColor: 'rgba(220, 20, 60, ' + String(sensor5) + ')',
+                                position: 'absolute',
+                                top: '60%',
+                                left: '45%',
+                                borderRadius: hp(20),
+                                justifyContent: 'center',
+                                alignItems: 'center'
+                            }}
+                        >
+                        <Text
+                            style={{
+                                color: 'white',
+                                opacity: 1,
+                                fontWeight: 'bold',
+                                fontSize: hp(1.5)
+                            }}
+                        >
+                            50
+                        </Text>
 
-                    </View>
-                </ImageBackground>
+                        </View>
+                    </ImageBackground>
+                </View>
             </ScrollView>
         </View>
     )
@@ -163,8 +188,6 @@ export default function Home() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: 'white'
     }
 })
