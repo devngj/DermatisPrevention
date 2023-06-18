@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet, Image, ActivityIndicator } from 'react-native';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import { Input } from '@rneui/themed'
 import Toast from 'react-native-toast-message/lib/src/Toast';
@@ -32,9 +32,9 @@ const LoginScreen = ({ navigation }) => {
     const [emailError, setEmailError] = useState('');
     const [password, setPassword] = useState('');
     const [passwordError, setPasswordError] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const login = async () => {
-        setLoginError("");
         setEmailError("");
         setPasswordError("");
         if (email == "") {
@@ -46,16 +46,39 @@ const LoginScreen = ({ navigation }) => {
             return;
         }
 
+        setLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
-                // ...
+                setLoading(false);
+                navigation.reset({
+                    routes: [{ name: 'HomeStackScreen' }]
+                })
             })
             .catch((err) => {
                 console.log(err.code)
                 const errorCode = err.code;
                 const errorMessage = err.message;
+                if (err.code == 'auth/invalid-email') {
+                    Toast.show({
+                        type: 'error',
+                        text1: 'Please check your email.'
+                    })
+                }
+                else if (err.code == 'auth/wrong-password') {
+                    Toast.show({
+                        type: 'error',
+                        text1: 'Wrong password.'
+                    })
+                }
+                else if (err.code == 'auth/user-not-found') {
+                    Toast.show({
+                        type: 'error',
+                        text1: 'Account does not exist.'
+                    })
+                }
+                setLoading(false);
             });
     }
 
@@ -87,6 +110,7 @@ const LoginScreen = ({ navigation }) => {
                     color: '#7b879b',
                     size: hp(2.5)
                 }}
+                autoCapitalize='none'
                 placeholderTextColor={'#7b879b'}
                 inputStyle={{
                     fontSize: hp(2)
@@ -130,17 +154,21 @@ const LoginScreen = ({ navigation }) => {
                     login();
                 }}
             >
-
-                <Text
-                    style={{
-                        color: 'white',
-                        fontWeight: 'bold',
-                        textAlign: 'center',
-                        fontSize: hp(2)
-                    }}
-                >
-                    Login
-                </Text>
+                {
+                    loading ?
+                        <ActivityIndicator color="white" size={hp(2)} />
+                        :
+                        <Text
+                            style={{
+                                color: 'white',
+                                fontWeight: 'bold',
+                                textAlign: 'center',
+                                fontSize: hp(2)
+                            }}
+                        >
+                            Login
+                        </Text>
+                }
             </TouchableOpacity>
             <View>
                 <Text
