@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Dimensions, StyleSheet, ImageBackground, ScrollView } from "react-native";
+import { CheckBox, View, Text, Dimensions, StyleSheet, ImageBackground, ScrollView } from "react-native";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-native-responsive-screen";
 import { LineChart } from "react-native-chart-kit";
 
@@ -30,6 +30,8 @@ const data = {
     }
 
 export default function Dashboard() {
+
+    
     return (
         <View
             style={StyleSheet.container}
