@@ -1,37 +1,39 @@
 import React, { useState } from "react";
-import { CheckBox, View, Text, Dimensions, StyleSheet, ImageBackground, ScrollView } from "react-native";
+import { View, Text, Dimensions, StyleSheet, ImageBackground, ScrollView } from "react-native";
+import { CheckBox } from "@react-native-community/checkbox";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-native-responsive-screen";
 import { LineChart } from "react-native-chart-kit";
 
 const data = {
-        labels: ["January", "February", "March", "April", "May", "June"],
-        datasets: [
-            {
-                data: [
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100
-                ]
-            },
-            {
-                data: [
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100
-                ]
-            }
-        ]
-    }
+    labels: ["January", "February", "March", "April", "May", "June"],
+    datasets: [
+        {
+            data: [
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100
+            ]
+        },
+        {
+            data: [
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100,
+                Math.random() * 100
+            ]
+        }
+    ]
+}
 
 export default function Dashboard() {
 
-    
+    const [isSelected, setSelection] = useState(false);
+
     return (
         <View
             style={StyleSheet.container}
@@ -88,6 +90,17 @@ export default function Dashboard() {
                 }}
                 resizeMode="contain"
             />
+            <View style={styles.container}>
+                <View style={styles.checkboxContainer}>
+                    <CheckBox
+                        value={isSelected}
+                        onValueChange={setSelection}
+                        style={styles.checkbox}
+                    />
+                    <Text style={styles.label}>Do you like React Native?</Text>
+                </View>
+                <Text>Is CheckBox selected: {isSelected ? '👍' : '👎'}</Text>
+            </View>
         </View>
     )
 }
