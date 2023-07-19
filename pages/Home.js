@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, ImageBackground, ScrollView } from "react-native";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-native-responsive-screen";
 import Svg, { Defs, RadialGradient, Stop, Ellipse, Text as SVGText } from "react-native-svg";
+import axios from 'axios';
 
 export default function Home() {
     const [sensor1, setSensor1] = useState(1);
@@ -12,6 +13,35 @@ export default function Home() {
     const [postureStatus, setPostureStatus] = useState("good");
     const [lastUpdated, setLastUpdated] = useState("2023-07-16 15:58")
 
+    useEffect(() => {
+        const getSensorData = () => {
+            axios.get('http://52.79.122.229:8000/fetch_most_recent')
+            .then(function (response) {
+                // handle success
+                var data = response.data;
+                var sen1 = data.sen1
+                var sen2 = data.sen2
+                var sen3 = data.sen3
+                var sen4 = data.sen4
+                var sen5 = data.sen5
+                setSensor1((data.sen1/1000));
+                setSensor2((data.sen2/1000));
+                setSensor3((data.sen3/1000));
+                setSensor4((data.sen4/1000));
+                setSensor5((data.sen5/1000));
+
+                // Make the algorithm that decides whether the user has good or bad posture.
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .finally(function () {
+                // always executed
+            });
+        }
+        getSensorData();
+    }, [])
 
     return (
         <View style={styles.container}>
@@ -112,7 +142,7 @@ export default function Home() {
                                     textAnchor="middle"
                                     fill="white"
                                 >
-                                    {sensor1*100}
+                                    {parseInt(sensor1*100)}
                                 </SVGText>
 
                             </Svg>
@@ -154,7 +184,7 @@ export default function Home() {
                                     textAnchor="middle"
                                     fill="white"
                                 >
-                                    {sensor2*100}
+                                    {parseInt(sensor2*100)}
                                 </SVGText>
 
                             </Svg>
@@ -196,7 +226,7 @@ export default function Home() {
                                     textAnchor="middle"
                                     fill="white"
                                 >
-                                    {sensor3*100}
+                                    {parseInt(sensor3*100)}
                                 </SVGText>
 
                             </Svg>
@@ -238,7 +268,7 @@ export default function Home() {
                                     textAnchor="middle"
                                     fill="white"
                                 >
-                                    {sensor4*100}
+                                    {parseInt(sensor4*100)}
                                 </SVGText>
 
                             </Svg>
@@ -280,7 +310,7 @@ export default function Home() {
                                     textAnchor="middle"
                                     fill="white"
                                 >
-                                    {sensor5*100}
+                                    {parseInt(sensor5*100)}
                                 </SVGText>
 
                             </Svg>

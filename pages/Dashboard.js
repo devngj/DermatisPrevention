@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, Dimensions, StyleSheet, ImageBackground, ScrollView } from "react-native";
-import { CheckBox } from "@react-native-community/checkbox";
+import Checkbox from 'expo-checkbox';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-native-responsive-screen";
 import { LineChart } from "react-native-chart-kit";
 
@@ -90,17 +90,15 @@ export default function Dashboard() {
                 }}
                 resizeMode="contain"
             />
-            <View style={styles.container}>
-                <View style={styles.checkboxContainer}>
-                    <CheckBox
-                        value={isSelected}
-                        onValueChange={setSelection}
-                        style={styles.checkbox}
-                    />
-                    <Text style={styles.label}>Do you like React Native?</Text>
-                </View>
-                <Text>Is CheckBox selected: {isSelected ? '👍' : '👎'}</Text>
+            <View style={styles.checkboxContainer}>
+                <Checkbox
+                    value={isSelected}
+                    onValueChange={setSelection}
+                    style={styles.checkbox}
+                />
+                <Text style={styles.label}>Do you like React Native?</Text>
             </View>
+            <Text>Is CheckBox selected: {isSelected ? '👍' : '👎'}</Text>
         </View>
     )
 }
