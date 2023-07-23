@@ -34,6 +34,12 @@ const data = {
 export default function Dashboard() {
 
     const [isSelected, setSelection] = useState(false);
+    const [sen1CurData, setsen1CurData] = useState(10);
+    const [sen2CurData, setsen2CurData] = useState(10);
+    const [sen3CurData, setsen3CurData] = useState(10);
+    const [sen4CurData, setsen4CurData] = useState(10);
+    const [sen5CurData, setsen5CurData] = useState(10);
+    const [senAllCurData, setsenAllCurData] = useState(10);
 
     return (
         <View
@@ -50,108 +56,146 @@ export default function Dashboard() {
             >
                 Sensor Data
             </Text>
-            <TouchableOpacity
+            <Text
                 style={{
-                    borderTopWidth: 1,
-                    padding: hp(2.5),
-                    borderBottomWidth: 1,
-                    flexDirection: 'row',
+                    color: 'gray',
+                    fontSize: hp(2.5),
+                    marginLeft: hp(2),
                     marginTop: hp(2)
                 }}
             >
-                <Text
-                    style={{
-                        fontSize: hp(2.4)
-                    }}>
-                    Sensor1
-                </Text>
-                <View style={{ marginLeft: 'auto' }}>
-                    <Icon name="chevron-right" size={23} color="green" />
+                Your most recent pressure data
+            </Text>
+            <TouchableOpacity
+                style={{
+                    padding: hp(2.5),
+                    borderBottomWidth: 1,
+                    flexDirection: 'row',
+                }}
+            >
+                <View>
+                    <Text
+                        style={{
+                            fontSize: hp(2.4)
+                        }}>
+                        Sensor1
+                    </Text>
+                    <Text>
+                        {sen1CurData}
+                    </Text>
+                </View>
+                <View style={{ marginLeft: 'auto', marginTop: 9 }}>
+                    <Icon name="chevron-right" size={23} color="gray" />
                 </View>
             </TouchableOpacity>
             <TouchableOpacity
                 style={{
                     padding: hp(2.5),
                     borderBottomWidth: 1,
-                    flexDirection: 'row'
+                    flexDirection: 'row',
                 }}
             >
-                <Text
-                    style={{
-                        fontSize: hp(2.4)
-                    }}>
-                    Sensor2
-                </Text>
-                <View style={{ marginLeft: 'auto' }}>
-                    <Icon name="chevron-right" size={23} color="green" />
+                <View>
+                    <Text
+                        style={{
+                            fontSize: hp(2.4)
+                        }}>
+                        Sensor2
+                    </Text>
+                    <Text>
+                        {sen2CurData}
+                    </Text>
+                </View>
+                <View style={{ marginLeft: 'auto', marginTop: 9 }}>
+                    <Icon name="chevron-right" size={23} color="gray" />
+                </View>
+            </TouchableOpacity><TouchableOpacity
+                style={{
+                    padding: hp(2.5),
+                    borderBottomWidth: 1,
+                    flexDirection: 'row',
+                }}
+            >
+                <View>
+                    <Text
+                        style={{
+                            fontSize: hp(2.4)
+                        }}>
+                        Sensor3
+                    </Text>
+                    <Text>
+                        {sen3CurData}
+                    </Text>
+                </View>
+                <View style={{ marginLeft: 'auto', marginTop: 9 }}>
+                    <Icon name="chevron-right" size={23} color="gray" />
                 </View>
             </TouchableOpacity>
             <TouchableOpacity
                 style={{
                     padding: hp(2.5),
                     borderBottomWidth: 1,
-                    flexDirection: 'row'
+                    flexDirection: 'row',
+
                 }}
             >
-                <Text
-                    style={{
-                        fontSize: hp(2.4)
-                    }}>
-                    Sensor3
-                </Text>
-                <View style={{ marginLeft: 'auto' }}>
-                    <Icon name="chevron-right" size={23} color="green" />
+                <View>
+                    <Text
+                        style={{
+                            fontSize: hp(2.4)
+                        }}>
+                        Sensor4
+                    </Text>
+                    <Text>
+                        {sen4CurData}
+                    </Text>
+                </View>
+                <View style={{ marginLeft: 'auto', marginTop: 9 }}>
+                    <Icon name="chevron-right" size={23} color="gray" />
                 </View>
             </TouchableOpacity>
             <TouchableOpacity
                 style={{
                     padding: hp(2.5),
                     borderBottomWidth: 1,
-                    flexDirection: 'row'
+                    flexDirection: 'row',
+
                 }}
             >
-                <Text
-                    style={{
-                        fontSize: hp(2.4)
-                    }}>
-                    Sensor4
-                </Text>
-                <View style={{ marginLeft: 'auto' }}>
-                    <Icon name="chevron-right" size={23} color="green" />
+                <View>
+                    <Text
+                        style={{
+                            fontSize: hp(2.4)
+                        }}>
+                        Sensor5
+                    </Text>
+                    <Text>
+                        {sen5CurData}
+                    </Text>
                 </View>
-            </TouchableOpacity>
-            <TouchableOpacity
+                <View style={{ marginLeft: 'auto', marginTop: 9 }}>
+                    <Icon name="chevron-right" size={23} color="gray" />
+                </View>
+            </TouchableOpacity><TouchableOpacity
                 style={{
                     padding: hp(2.5),
                     borderBottomWidth: 1,
-                    flexDirection: 'row'
+                    flexDirection: 'row',
                 }}
             >
-                <Text
-                    style={{
-                        fontSize: hp(2.4)
-                    }}>
-                    Sensor5
-                </Text>
-                <View style={{ marginLeft: 'auto' }}>
-                    <Icon name="chevron-right" size={23} color="green" />
+                <View>
+                    <Text
+                        style={{
+                            fontSize: hp(2.4)
+                        }}>
+                        All Sensor
+                    </Text>
+                    <Text>
+                        {senAllCurData}
+                    </Text>
                 </View>
-            </TouchableOpacity>
-            <TouchableOpacity
-                style={{
-                    padding: hp(2.5),
-                    borderBottomWidth: 1,
-                    flexDirection: 'row'
-                }}
-            >
-                <Text
-                    style={{
-                        fontSize: hp(2.4)
-                    }}>
-                    All Sensors
-                </Text>
-                <View style={{ marginLeft: 'auto' }}>
-                    <Icon name="chevron-right" size={23} color="green" />
+                <View style={{ marginLeft: 'auto', marginTop: 9 }}>
+                    <Icon name="chevron-right" size={23} color="gray" />
                 </View>
             </TouchableOpacity>
         </View>
