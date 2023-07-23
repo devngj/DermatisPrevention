@@ -43,7 +43,7 @@ export default function Dashboard() {
 
     return (
         <View
-            style={StyleSheet.container}
+            style={styles.container}
         >
             <Text
                 style={{
@@ -71,21 +71,40 @@ export default function Dashboard() {
                     padding: hp(2.5),
                     borderBottomWidth: 1,
                     flexDirection: 'row',
+                    borderBottomColor: '#DDE6ED',
+                    alignItems: 'center'
                 }}
             >
-                <View>
+                <Icon 
+                    type="ionicon"
+                    name="analytics-outline"
+                    size={hp(4)}
+                    color={'#969fbd'}
+                />
+                <View
+                    style={{
+                        marginLeft: hp(2)
+                    }}
+                >
                     <Text
                         style={{
-                            fontSize: hp(2.4)
+                            fontSize: hp(2.4),
+                            fontWeight: '600'
                         }}>
                         Sensor1
                     </Text>
-                    <Text>
-                        {sen1CurData}
+                    <Text
+                        style={{
+                            marginTop: hp(1),
+                            color: '#8a8ba3',
+                            fontWeight: '600'
+                        }}
+                    >
+                        Current: {sen1CurData}
                     </Text>
                 </View>
-                <View style={{ marginLeft: 'auto', marginTop: 9 }}>
-                    <Icon name="chevron-right" size={23} color="gray" />
+                <View style={{ marginLeft: 'auto' }}>
+                    <Icon name="chevron-right" size={hp(3)} color="gray" />
                 </View>
             </TouchableOpacity>
             <TouchableOpacity
@@ -93,42 +112,80 @@ export default function Dashboard() {
                     padding: hp(2.5),
                     borderBottomWidth: 1,
                     flexDirection: 'row',
+                    borderBottomColor: '#DDE6ED',
+                    alignItems: 'center'
                 }}
             >
-                <View>
+                <Icon 
+                    type="ionicon"
+                    name="analytics-outline"
+                    size={hp(4)}
+                    color={'#969fbd'}
+                />
+                <View
+                    style={{
+                        marginLeft: hp(2)
+                    }}
+                >
                     <Text
                         style={{
-                            fontSize: hp(2.4)
+                            fontSize: hp(2.4),
+                            fontWeight: '600'
                         }}>
                         Sensor2
                     </Text>
-                    <Text>
-                        {sen2CurData}
+                    <Text
+                        style={{
+                            marginTop: hp(1),
+                            color: '#8a8ba3',
+                            fontWeight: '600'
+                        }}
+                    >
+                        Current: {sen2CurData}
                     </Text>
                 </View>
-                <View style={{ marginLeft: 'auto', marginTop: 9 }}>
-                    <Icon name="chevron-right" size={23} color="gray" />
+                <View style={{ marginLeft: 'auto' }}>
+                    <Icon name="chevron-right" size={hp(3)} color="gray" />
                 </View>
             </TouchableOpacity><TouchableOpacity
                 style={{
                     padding: hp(2.5),
                     borderBottomWidth: 1,
                     flexDirection: 'row',
+                    borderBottomColor: '#DDE6ED',
+                    alignItems: 'center'
                 }}
             >
-                <View>
+                <Icon 
+                    type="ionicon"
+                    name="analytics-outline"
+                    size={hp(4)}
+                    color={'#969fbd'}
+                />
+                <View
+                    style={{
+                        marginLeft: hp(2)
+                    }}
+                >
                     <Text
                         style={{
-                            fontSize: hp(2.4)
+                            fontSize: hp(2.4),
+                            fontWeight: '600'
                         }}>
                         Sensor3
                     </Text>
-                    <Text>
-                        {sen3CurData}
+                    <Text
+                        style={{
+                            marginTop: hp(1),
+                            color: '#8a8ba3',
+                            fontWeight: '600'
+                        }}
+                    >
+                        Current: {sen3CurData}
                     </Text>
                 </View>
-                <View style={{ marginLeft: 'auto', marginTop: 9 }}>
-                    <Icon name="chevron-right" size={23} color="gray" />
+                <View style={{ marginLeft: 'auto' }}>
+                    <Icon name="chevron-right" size={hp(3)} color="gray" />
                 </View>
             </TouchableOpacity>
             <TouchableOpacity
@@ -136,22 +193,41 @@ export default function Dashboard() {
                     padding: hp(2.5),
                     borderBottomWidth: 1,
                     flexDirection: 'row',
+                    borderBottomColor: '#DDE6ED',
+                    alignItems: 'center'
 
                 }}
             >
-                <View>
+                <Icon 
+                    type="ionicon"
+                    name="analytics-outline"
+                    size={hp(4)}
+                    color={'#969fbd'}
+                />
+                <View
+                    style={{
+                        marginLeft: hp(2)
+                    }}
+                >
                     <Text
                         style={{
-                            fontSize: hp(2.4)
+                            fontSize: hp(2.4),
+                            fontWeight: '600'
                         }}>
                         Sensor4
                     </Text>
-                    <Text>
-                        {sen4CurData}
+                    <Text
+                        style={{
+                            marginTop: hp(1),
+                            color: '#8a8ba3',
+                            fontWeight: '600'
+                        }}
+                    >
+                        Current: {sen4CurData}
                     </Text>
                 </View>
-                <View style={{ marginLeft: 'auto', marginTop: 9 }}>
-                    <Icon name="chevron-right" size={23} color="gray" />
+                <View style={{ marginLeft: 'auto' }}>
+                    <Icon name="chevron-right" size={hp(3)} color="gray" />
                 </View>
             </TouchableOpacity>
             <TouchableOpacity
@@ -159,43 +235,81 @@ export default function Dashboard() {
                     padding: hp(2.5),
                     borderBottomWidth: 1,
                     flexDirection: 'row',
+                    borderBottomColor: '#DDE6ED',
+                    alignItems: 'center'
 
                 }}
             >
-                <View>
+                <Icon 
+                    type="ionicon"
+                    name="analytics-outline"
+                    size={hp(4)}
+                    color={'#969fbd'}
+                />
+                <View
+                    style={{
+                        marginLeft: hp(2)
+                    }}
+                >
                     <Text
                         style={{
-                            fontSize: hp(2.4)
+                            fontSize: hp(2.4),
+                            fontWeight: '600'
                         }}>
                         Sensor5
                     </Text>
-                    <Text>
-                        {sen5CurData}
+                    <Text
+                        style={{
+                            marginTop: hp(1),
+                            color: '#8a8ba3',
+                            fontWeight: '600'
+                        }}
+                    >
+                        Current: {sen5CurData}
                     </Text>
                 </View>
-                <View style={{ marginLeft: 'auto', marginTop: 9 }}>
-                    <Icon name="chevron-right" size={23} color="gray" />
+                <View style={{ marginLeft: 'auto' }}>
+                    <Icon name="chevron-right" size={hp(3)} color="gray" />
                 </View>
             </TouchableOpacity><TouchableOpacity
                 style={{
                     padding: hp(2.5),
                     borderBottomWidth: 1,
                     flexDirection: 'row',
+                    borderBottomColor: '#DDE6ED',
+                    alignItems: 'center'
                 }}
             >
-                <View>
+                <Icon 
+                    type="ionicon"
+                    name="analytics-outline"
+                    size={hp(4)}
+                    color={'#969fbd'}
+                />
+                <View
+                    style={{
+                        marginLeft: hp(2)
+                    }}
+                >
                     <Text
                         style={{
-                            fontSize: hp(2.4)
+                            fontSize: hp(2.4),
+                            fontWeight: '600'
                         }}>
                         All Sensor
                     </Text>
-                    <Text>
-                        {senAllCurData}
+                    <Text
+                        style={{
+                            marginTop: hp(1),
+                            color: '#8a8ba3',
+                            fontWeight: '600'
+                        }}
+                    >
+                        Current: {senAllCurData}
                     </Text>
                 </View>
-                <View style={{ marginLeft: 'auto', marginTop: 9 }}>
-                    <Icon name="chevron-right" size={23} color="gray" />
+                <View style={{ marginLeft: 'auto' }}>
+                    <Icon name="chevron-right" size={hp(3)} color="gray" />
                 </View>
             </TouchableOpacity>
         </View>
@@ -205,7 +319,6 @@ export default function Dashboard() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
+        backgroundColor: 'white'
     }
 })
