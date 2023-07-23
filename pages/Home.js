@@ -30,7 +30,7 @@ export default function Home() {
                 setSensor4((data.sen4/1000));
                 setSensor5((data.sen5/1000));
 
-                // Make the algorithm that decides whether the user has good or bad posture.
+                
             })
             .catch(function (error) {
                 // handle error
