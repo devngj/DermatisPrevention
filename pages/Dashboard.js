@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { View, Text, Dimensions, StyleSheet, ImageBackground, ScrollView } from "react-native";
+import { View, Text, Dimensions, StyleSheet, ImageBackground, ScrollView, TouchableOpacity } from "react-native";
 import Checkbox from 'expo-checkbox';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-native-responsive-screen";
 import { LineChart } from "react-native-chart-kit";
+import { Icon } from "@rneui/base";
 
 const data = {
     labels: ["January", "February", "March", "April", "May", "June"],
@@ -47,58 +48,112 @@ export default function Dashboard() {
                     marginLeft: hp(2)
                 }}
             >
-                Long-Term
+                Sensor Data
             </Text>
-            <Text
+            <TouchableOpacity
                 style={{
-                    color: 'black',
-                    fontSize: hp(4),
-                    fontWeight: 'bold',
-                    marginTop: hp(0),
-                    marginLeft: hp(2)
+                    borderTopWidth: 1,
+                    padding: hp(2.5),
+                    borderBottomWidth: 1,
+                    flexDirection: 'row',
+                    marginTop: hp(2)
                 }}
             >
-                Pressure Data
-            </Text>
-            <LineChart
-                data={data}
-                width={Dimensions.get("window").width} // from react-native
-                height={220}
-                yAxisLabel="$"
-                yAxisSuffix="k"
-                yAxisInterval={1} // optional, defaults to 1
-                chartConfig={{
-                    backgroundColor: "#e26a00",
-                    backgroundGradientFrom: "#fb8c00",
-                    backgroundGradientTo: "#ffa726",
-                    decimalPlaces: 2, // optional, defaults to 2dp
-                    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                    labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                    style: {
-                        borderRadius: 16
-                    },
-                    propsForDots: {
-                        r: "6",
-                        strokeWidth: "2",
-                        stroke: "#ffa726"
-                    }
-                }}
-                bezier
+                <Text
+                    style={{
+                        fontSize: hp(2.4)
+                    }}>
+                    Sensor1
+                </Text>
+                <View style={{ marginLeft: 'auto' }}>
+                    <Icon name="chevron-right" size={23} color="green" />
+                </View>
+            </TouchableOpacity>
+            <TouchableOpacity
                 style={{
-                    marginVertical: 8,
-                    borderRadius: 16
+                    padding: hp(2.5),
+                    borderBottomWidth: 1,
+                    flexDirection: 'row'
                 }}
-                resizeMode="contain"
-            />
-            <View style={styles.checkboxContainer}>
-                <Checkbox
-                    value={isSelected}
-                    onValueChange={setSelection}
-                    style={styles.checkbox}
-                />
-                <Text style={styles.label}>Do you like React Native?</Text>
-            </View>
-            <Text>Is CheckBox selected: {isSelected ? '👍' : '👎'}</Text>
+            >
+                <Text
+                    style={{
+                        fontSize: hp(2.4)
+                    }}>
+                    Sensor2
+                </Text>
+                <View style={{ marginLeft: 'auto' }}>
+                    <Icon name="chevron-right" size={23} color="green" />
+                </View>
+            </TouchableOpacity>
+            <TouchableOpacity
+                style={{
+                    padding: hp(2.5),
+                    borderBottomWidth: 1,
+                    flexDirection: 'row'
+                }}
+            >
+                <Text
+                    style={{
+                        fontSize: hp(2.4)
+                    }}>
+                    Sensor3
+                </Text>
+                <View style={{ marginLeft: 'auto' }}>
+                    <Icon name="chevron-right" size={23} color="green" />
+                </View>
+            </TouchableOpacity>
+            <TouchableOpacity
+                style={{
+                    padding: hp(2.5),
+                    borderBottomWidth: 1,
+                    flexDirection: 'row'
+                }}
+            >
+                <Text
+                    style={{
+                        fontSize: hp(2.4)
+                    }}>
+                    Sensor4
+                </Text>
+                <View style={{ marginLeft: 'auto' }}>
+                    <Icon name="chevron-right" size={23} color="green" />
+                </View>
+            </TouchableOpacity>
+            <TouchableOpacity
+                style={{
+                    padding: hp(2.5),
+                    borderBottomWidth: 1,
+                    flexDirection: 'row'
+                }}
+            >
+                <Text
+                    style={{
+                        fontSize: hp(2.4)
+                    }}>
+                    Sensor5
+                </Text>
+                <View style={{ marginLeft: 'auto' }}>
+                    <Icon name="chevron-right" size={23} color="green" />
+                </View>
+            </TouchableOpacity>
+            <TouchableOpacity
+                style={{
+                    padding: hp(2.5),
+                    borderBottomWidth: 1,
+                    flexDirection: 'row'
+                }}
+            >
+                <Text
+                    style={{
+                        fontSize: hp(2.4)
+                    }}>
+                    All Sensors
+                </Text>
+                <View style={{ marginLeft: 'auto' }}>
+                    <Icon name="chevron-right" size={23} color="green" />
+                </View>
+            </TouchableOpacity>
         </View>
     )
 }
