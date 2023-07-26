@@ -47,19 +47,74 @@ export default function Detail() {
                     marginLeft: hp(2)
                 }}
             >
-                Long-Term
+                Sensor1
             </Text>
-            <Text
-                style={{
-                    color: 'black',
-                    fontSize: hp(4),
-                    fontWeight: 'bold',
-                    marginTop: hp(0),
-                    marginLeft: hp(2)
-                }}
-            >
-                Pressure Data
-            </Text>
+            <View style={{
+                flexDirection: 'row',
+                justifyContent: 'space-around'
+            }}>
+                <View style={{
+                    backgroundColor: '#e9e4d8',
+                    height: hp(15),
+                    margin: hp(2),
+                    borderRadius: hp(2),
+                    alignContent: 'center'
+                }}>
+                    <Text
+                        style={{
+                            color: 'black',
+                            fontSize: hp(3),
+                            marginLeft: hp(1),
+                            marginTop: hp(2),
+                            marginRight: hp(5),
+                            fontWeight: 'bold'
+                        }}
+                    >
+                        Average
+                    </Text>
+                    <Text
+                        style={{
+                            color: 'black',
+                            fontSize: hp(3),
+                            marginTop: hp(2),
+                            marginLeft: hp(1),
+                            fontWeight: 'bold'
+                        }}
+                    >
+                            10
+                    </Text>
+                </View>
+                <View style={{
+                    backgroundColor: '#e9e4d8',
+                    height: hp(15),
+                    margin: hp(2),
+                    borderRadius: hp(2)
+                }}>
+                    <Text
+                        style={{
+                            color: 'black',
+                            fontSize: hp(3),
+                            marginRight: hp(4),
+                            marginLeft: hp(1),
+                            marginTop: hp(2),
+                            fontWeight: 'bold'
+                        }}
+                    >
+                        Min / Max
+                    </Text>
+                    <Text
+                        style={{
+                            color: 'black',
+                            fontSize: hp(3),
+                            marginTop: hp(2),
+                            marginLeft: hp(1),
+                            fontWeight: 'bold'
+                        }}
+                    >
+                            10
+                    </Text>
+                </View>
+            </View>
             <LineChart
                 data={data}
                 width={Dimensions.get("window").width} // from react-native

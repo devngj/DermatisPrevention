@@ -31,7 +31,7 @@ const data = {
     ]
 }
 
-export default function Dashboard() {
+export default function Dashboard(props) {
 
     const [isSelected, setSelection] = useState(false);
     const [sen1CurData, setsen1CurData] = useState(10);
@@ -74,6 +74,9 @@ export default function Dashboard() {
                     borderBottomColor: '#DDE6ED',
                     alignItems: 'center'
                 }}
+                onPress={() => {
+                    props.navigation.navigate("Detail")
+                }}
             >
                 <Icon 
                     type="ionicon"
@@ -115,6 +118,9 @@ export default function Dashboard() {
                     borderBottomColor: '#DDE6ED',
                     alignItems: 'center'
                 }}
+                onPress={() => {
+                    props.navigation.navigate("Detail")
+                }}
             >
                 <Icon 
                     type="ionicon"
@@ -154,6 +160,9 @@ export default function Dashboard() {
                     flexDirection: 'row',
                     borderBottomColor: '#DDE6ED',
                     alignItems: 'center'
+                }}
+                onPress={() => {
+                    props.navigation.navigate("Detail")
                 }}
             >
                 <Icon 
@@ -197,6 +206,9 @@ export default function Dashboard() {
                     alignItems: 'center'
 
                 }}
+                onPress={() => {
+                    props.navigation.navigate("Detail")
+                }}
             >
                 <Icon 
                     type="ionicon"
@@ -239,6 +251,9 @@ export default function Dashboard() {
                     alignItems: 'center'
 
                 }}
+                onPress={() => {
+                    props.navigation.navigate("Detail")
+                }}
             >
                 <Icon 
                     type="ionicon"
@@ -278,6 +293,9 @@ export default function Dashboard() {
                     flexDirection: 'row',
                     borderBottomColor: '#DDE6ED',
                     alignItems: 'center'
+                }}
+                onPress={() => {
+                    props.navigation.navigate("Detail")
                 }}
             >
                 <Icon 
