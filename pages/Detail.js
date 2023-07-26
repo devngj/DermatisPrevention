@@ -3,6 +3,7 @@ import { View, Text, Dimensions, StyleSheet, ImageBackground, ScrollView } from 
 import Checkbox from 'expo-checkbox';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-native-responsive-screen";
 import { LineChart } from "react-native-chart-kit";
+import { Icon } from "@rneui/themed";
 
 const data = {
     labels: ["January", "February", "March", "April", "May", "June"],
@@ -79,6 +80,43 @@ export default function Detail() {
                         }}
                     >
                             10
+                    </Text>
+                    <View
+                        style={{
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            marginLeft: hp(2),
+                            marginTop: hp(1)
+                        }}
+                    >
+                        <Icon 
+                            type="ionicon"
+                            name="arrow-up-outline"
+                            size={hp(2)}
+                            color={'#71d5aa'}
+                            style={{
+                                backgroundColor: '#c1ecd9',
+                                borderRadius: 100
+                            }}
+                        />
+                        <Text
+                            style={{
+                                marginLeft: hp(1),
+                                color: '#71d5aa',
+                                fontSize: hp(1.5)
+                            }}
+                        >
+                            +12.45%
+                        </Text>
+                    </View>
+                    <Text
+                        style={{
+                            marginLeft: hp(2),
+                            fontSize: hp(1.5),
+                            color: '#bcbcbc'
+                        }}
+                    >
+                        Than Last Week
                     </Text>
                 </View>
                 <View style={{
