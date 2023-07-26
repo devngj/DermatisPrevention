@@ -56,18 +56,15 @@ export default function Detail() {
                 <View style={{
                     backgroundColor: '#e9e4d8',
                     height: hp(15),
-                    margin: hp(2),
                     borderRadius: hp(2),
-                    alignContent: 'center'
+                    width: wp(40)
                 }}>
                     <Text
                         style={{
                             color: 'black',
-                            fontSize: hp(3),
-                            marginLeft: hp(1),
-                            marginTop: hp(2),
-                            marginRight: hp(5),
-                            fontWeight: 'bold'
+                            fontSize: hp(2),
+                            marginLeft: hp(2),
+                            marginTop: hp(2)
                         }}
                     >
                         Average
@@ -76,8 +73,8 @@ export default function Detail() {
                         style={{
                             color: 'black',
                             fontSize: hp(3),
-                            marginTop: hp(2),
-                            marginLeft: hp(1),
+                            marginTop: hp(1),
+                            marginLeft: hp(2),
                             fontWeight: 'bold'
                         }}
                     >
@@ -87,17 +84,15 @@ export default function Detail() {
                 <View style={{
                     backgroundColor: '#e9e4d8',
                     height: hp(15),
-                    margin: hp(2),
-                    borderRadius: hp(2)
+                    borderRadius: hp(2),
+                    width: wp(40)
                 }}>
                     <Text
                         style={{
                             color: 'black',
-                            fontSize: hp(3),
-                            marginRight: hp(4),
-                            marginLeft: hp(1),
-                            marginTop: hp(2),
-                            fontWeight: 'bold'
+                            fontSize: hp(2),
+                            marginLeft: hp(2),
+                            marginTop: hp(2)
                         }}
                     >
                         Min / Max
@@ -106,8 +101,8 @@ export default function Detail() {
                         style={{
                             color: 'black',
                             fontSize: hp(3),
-                            marginTop: hp(2),
-                            marginLeft: hp(1),
+                            marginTop: hp(1),
+                            marginLeft: hp(2),
                             fontWeight: 'bold'
                         }}
                     >
