@@ -70,7 +70,7 @@ export default function Detail() {
                     backgroundColor: '#fff',
                     height: hp(15),
                     borderRadius: hp(2),
-                    width: wp(40)
+                    width: wp(43)
                 }}>
                     <Text
                         style={{
@@ -139,7 +139,7 @@ export default function Detail() {
                     backgroundColor: '#fff',
                     height: hp(15),
                     borderRadius: hp(2),
-                    width: wp(40)
+                    width: wp(43)
                 }}>
                     <Text
                         style={{
@@ -214,7 +214,7 @@ export default function Detail() {
                     backgroundColor: '#fff',
                     height: hp(15),
                     borderRadius: hp(2),
-                    width: wp(40)
+                    width: wp(43)
                 }}>
                     <Text
                         style={{
@@ -283,7 +283,7 @@ export default function Detail() {
                     backgroundColor: '#fff',
                     height: hp(15),
                     borderRadius: hp(2),
-                    width: wp(40)
+                    width: wp(43)
                 }}>
                     <Text
                         style={{
@@ -304,7 +304,7 @@ export default function Detail() {
                             fontWeight: 'bold'
                         }}
                     >
-                            {activated}
+                            {activated}hr
                     </Text>
                     <View
                         style={{
