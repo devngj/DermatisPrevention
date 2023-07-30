@@ -18,7 +18,7 @@ export default function App() {
           <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
           <Stack.Screen name="Register" component={RegisterScreen} options={{ headerShown: false }} />
           <Stack.Screen name="HomeStackScreen" component={HomeStackScreen} options={{ headerShown: false}} />
-          <Stack.Screen name="Detail" component={Detail} options={{ headerShown: false}} />
+          <Stack.Screen name="Detail" component={Detail} options={{ headerShown: false}} initialParams={{sensorType: "sensor1"}}/>
         </Stack.Navigator>
       </NavigationContainer>
       <Toast />
