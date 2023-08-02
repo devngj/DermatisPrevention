@@ -75,7 +75,9 @@ export default function Dashboard(props) {
                     alignItems: 'center'
                 }}
                 onPress={() => {
-                    props.navigation.navigate("Detail")
+                    props.navigation.navigate("Detail", {
+                        sensorType: "sensor1"
+                    })
                 }}
             >
                 <Icon 
@@ -119,7 +121,9 @@ export default function Dashboard(props) {
                     alignItems: 'center'
                 }}
                 onPress={() => {
-                    props.navigation.navigate("Detail")
+                    props.navigation.navigate("Detail", {
+                        sensorType: "sensor2"
+                    })
                 }}
             >
                 <Icon 
@@ -162,7 +166,9 @@ export default function Dashboard(props) {
                     alignItems: 'center'
                 }}
                 onPress={() => {
-                    props.navigation.navigate("Detail")
+                    props.navigation.navigate("Detail", {
+                        sensorType: "sensor3"
+                    })
                 }}
             >
                 <Icon 
@@ -207,7 +213,9 @@ export default function Dashboard(props) {
 
                 }}
                 onPress={() => {
-                    props.navigation.navigate("Detail")
+                    props.navigation.navigate("Detail", {
+                        sensorType: "sensor4"
+                    })
                 }}
             >
                 <Icon 
@@ -252,7 +260,9 @@ export default function Dashboard(props) {
 
                 }}
                 onPress={() => {
-                    props.navigation.navigate("Detail")
+                    props.navigation.navigate("Detail", {
+                        sensorType: "sensor5"
+                    })
                 }}
             >
                 <Icon 
@@ -295,7 +305,9 @@ export default function Dashboard(props) {
                     alignItems: 'center'
                 }}
                 onPress={() => {
-                    props.navigation.navigate("Detail")
+                    props.navigation.navigate("Detail", {
+                        sensorType: "all"
+                    })
                 }}
             >
                 <Icon 

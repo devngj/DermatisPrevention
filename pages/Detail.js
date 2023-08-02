@@ -30,8 +30,8 @@ const data = {
     ]
 }
 
-export default function Detail() {
-
+export default function Detail(props) {
+    const { sensorType } = props.route.params
     const [isSelected, setSelection] = useState(false);
     const [average, setAverage] = useState(10);
     const [lastWeekAverage, setLastWeekAverage] = useState(6);
@@ -58,7 +58,13 @@ export default function Detail() {
                     marginLeft: hp(3)
                 }}
             >
-                Sensor1
+                {sensorType == 'sensor1' ? "Sensor 1" :
+                    sensorType == 'sensor2' ? "Sensor 2" :
+                    sensorType == 'sensor3' ? "Sensor 3" :
+                    sensorType == 'sensor4' ? "Sensor 4" :
+                    sensorType == 'sensor5' ? "Sensor 5" :
+                    "All Sensors"
+                }
             </Text>
             <View style={{
                 flexDirection: 'row',
