@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { View, Text, Dimensions, StyleSheet, ImageBackground, ScrollView } from "react-native";
-import Checkbox from 'expo-checkbox';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-native-responsive-screen";
 import { LineChart } from "react-native-chart-kit";
 import { Icon } from "@rneui/themed";
