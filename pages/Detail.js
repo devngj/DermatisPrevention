@@ -58,6 +58,23 @@ export default function Detail(props) {
         }
       };
 
+    var array = [
+        {
+            "sensor1": 500,
+            "sensor_time": "time"
+        },
+        {
+            "sensor1": 500,
+            "sensor_time": "time"
+        },
+        {
+            "sensor1": 500,
+            "sensor_time": "time"
+        }
+    ]
+
+    console.log(array.map((el) => {return el.sensor1}))
+
 
 
     return (

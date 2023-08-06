@@ -2,6 +2,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "./Home";
 import Dashboard from "./Dashboard";
+import Exercise from "./Exercise";
 import { Icon } from "@rneui/themed";
 const Tab = createBottomTabNavigator();
 
@@ -25,6 +26,16 @@ export default function HomeStackScreen() {
                     headerShown: false,
                     tabBarIcon: ({color, size}) => (
                         <Icon type="ionicon" name="bar-chart-outline" color={color} size={size} />
+                    )
+                }}
+            />
+            <Tab.Screen 
+                name="Exercise"
+                component={Exercise}
+                options={{
+                    headerShown: false,
+                    tabBarIcon: ({color, size}) => (
+                        <Icon type="ionicon" name="barbell-outline" color={color} size={size} />
                     )
                 }}
             />
