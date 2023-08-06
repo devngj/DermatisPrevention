@@ -41,6 +41,24 @@ export default function Detail(props) {
     const [lastWeekMax] = useState(23);
     const [activated, setActivated] = useState(1);
     const [lastWeekActivated, setLastWeekActivated] = useState(2);
+    const [responseData, setResponseData] = useState('');
+
+
+    const sendPostRequest = async () => {
+        const url = "http://52.79.122.229:8000/get_sen_data";
+        const data = { type: sensorType };
+
+        try {
+          const response = await axios.post(url, data);
+          console.log('Response data:', response.data);
+            setResponseData(JSON.stringify(response.data));
+        } catch (error) {
+          console.error('Error:', error);
+
+        }
+      };
+
+
 
     return (
         <View
@@ -60,14 +78,14 @@ export default function Detail(props) {
             >
                 {sensorType == 'sensor1' ? "Sensor 1" :
                     sensorType == 'sensor2' ? "Sensor 2" :
-                    sensorType == 'sensor3' ? "Sensor 3" :
-                    sensorType == 'sensor4' ? "Sensor 4" :
-                    sensorType == 'sensor5' ? "Sensor 5" :
-                    "All Sensors"
+                        sensorType == 'sensor3' ? "Sensor 3" :
+                            sensorType == 'sensor4' ? "Sensor 4" :
+                                sensorType == 'sensor5' ? "Sensor 5" :
+                                    "All Sensors"
                 }
             </Text>
             <View style={{
-                flexDirection: 'row',
+                flexDirection: 'row', 
                 justifyContent: 'space-around',
                 marginTop: hp(2)
             }}>
@@ -96,7 +114,7 @@ export default function Detail(props) {
                             fontWeight: 'bold'
                         }}
                     >
-                            {average}
+                        {average}
                     </Text>
                     <View
                         style={{
@@ -106,7 +124,7 @@ export default function Detail(props) {
                             marginTop: hp(1)
                         }}
                     >
-                        <Icon 
+                        <Icon
                             type="ionicon"
                             name={(average - lastWeekAverage) > 0 ? "arrow-up-outline" : "arrow-down-outline"}
                             size={hp(2)}
@@ -123,10 +141,10 @@ export default function Detail(props) {
                                 fontSize: hp(1.5)
                             }}
                         >
-                            {(average - lastWeekAverage) > 0 ? 
-                            '+' + (((average-lastWeekAverage)/lastWeekAverage) * 100).toFixed(2) + '%'
-                            :
-                            (((average-lastWeekAverage)/lastWeekAverage) * 100).toFixed(2) + '%'
+                            {(average - lastWeekAverage) > 0 ?
+                                '+' + (((average - lastWeekAverage) / lastWeekAverage) * 100).toFixed(2) + '%'
+                                :
+                                (((average - lastWeekAverage) / lastWeekAverage) * 100).toFixed(2) + '%'
                             }
                         </Text>
                     </View>
@@ -165,7 +183,7 @@ export default function Detail(props) {
                             fontWeight: 'bold'
                         }}
                     >
-                            {min}
+                        {min}
                     </Text>
                     <View
                         style={{
@@ -175,7 +193,7 @@ export default function Detail(props) {
                             marginTop: hp(1)
                         }}
                     >
-                        <Icon 
+                        <Icon
                             type="ionicon"
                             name={(min - lastWeekMin) > 0 ? "arrow-up-outline" : "arrow-down-outline"}
                             size={hp(2)}
@@ -192,10 +210,10 @@ export default function Detail(props) {
                                 fontSize: hp(1.5)
                             }}
                         >
-                            {(min - lastWeekMin) > 0 ? 
-                            '+' + (((min-lastWeekMin)/lastWeekMin) * 100).toFixed(2) + '%'
-                            :
-                            (((min-lastWeekMin)/lastWeekMin) * 100).toFixed(2) + '%'
+                            {(min - lastWeekMin) > 0 ?
+                                '+' + (((min - lastWeekMin) / lastWeekMin) * 100).toFixed(2) + '%'
+                                :
+                                (((min - lastWeekMin) / lastWeekMin) * 100).toFixed(2) + '%'
                             }
                         </Text>
                     </View>
@@ -240,7 +258,7 @@ export default function Detail(props) {
                             fontWeight: 'bold'
                         }}
                     >
-                            {max}
+                        {max}
                     </Text>
                     <View
                         style={{
@@ -250,7 +268,7 @@ export default function Detail(props) {
                             marginTop: hp(1)
                         }}
                     >
-                        <Icon 
+                        <Icon
                             type="ionicon"
                             name={(max - lastWeekMax) > 0 ? "arrow-up-outline" : "arrow-down-outline"}
                             size={hp(2)}
@@ -267,10 +285,10 @@ export default function Detail(props) {
                                 fontSize: hp(1.5)
                             }}
                         >
-                            {(max - lastWeekMax) > 0 ? 
-                            '+' + (((max-lastWeekMax)/lastWeekMax) * 100).toFixed(2) + '%'
-                            :
-                            (((max-lastWeekMax)/lastWeekMax) * 100).toFixed(2) + '%'
+                            {(max - lastWeekMax) > 0 ?
+                                '+' + (((max - lastWeekMax) / lastWeekMax) * 100).toFixed(2) + '%'
+                                :
+                                (((max - lastWeekMax) / lastWeekMax) * 100).toFixed(2) + '%'
                             }
                         </Text>
                     </View>
@@ -309,7 +327,7 @@ export default function Detail(props) {
                             fontWeight: 'bold'
                         }}
                     >
-                            {activated}hr
+                        {activated}hr
                     </Text>
                     <View
                         style={{
@@ -319,7 +337,7 @@ export default function Detail(props) {
                             marginTop: hp(1)
                         }}
                     >
-                        <Icon 
+                        <Icon
                             type="ionicon"
                             name={(activated - lastWeekActivated) > 0 ? "arrow-up-outline" : "arrow-down-outline"}
                             size={hp(2)}
@@ -336,10 +354,10 @@ export default function Detail(props) {
                                 fontSize: hp(1.5)
                             }}
                         >
-                            {(activated - lastWeekActivated) > 0 ? 
-                            '+' + (((activated-lastWeekActivated)/lastWeekActivated) * 100).toFixed(2) + '%'
-                            :
-                            (((activated-lastWeekActivated)/lastWeekActivated) * 100).toFixed(2) + '%'
+                            {(activated - lastWeekActivated) > 0 ?
+                                '+' + (((activated - lastWeekActivated) / lastWeekActivated) * 100).toFixed(2) + '%'
+                                :
+                                (((activated - lastWeekActivated) / lastWeekActivated) * 100).toFixed(2) + '%'
                             }
                         </Text>
                     </View>
