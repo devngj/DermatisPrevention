@@ -30,20 +30,9 @@ const data = {
     ]
 }
 
-export default function Detail(props) {
-    const { sensorType } = props.route.params
-    const [isSelected, setSelection] = useState(false);
-    const [average, setAverage] = useState(10);
-    const [lastWeekAverage, setLastWeekAverage] = useState(6);
-    const [min, setMin] = useState(4);
-    const [lastWeekMin, setLastWeekMin] = useState(8);
-    const [max, setMax] = useState(15);
-    const [lastWeekMax] = useState(23);
-    const [activated, setActivated] = useState(1);
-    const [lastWeekActivated, setLastWeekActivated] = useState(2);
-    const [responseData, setResponseData] = useState('');
-
-
+const [responseData, setResponseData] = useState('');
+    
+    /*
     const sendPostRequest = async () => {
         const url = "http://52.79.122.229:8000/get_sen_data";
         const data = { type: sensorType };
@@ -56,27 +45,21 @@ export default function Detail(props) {
           console.error('Error:', error);
 
         }
-      };
+      }
+      */
 
-    var array = [
-        {
-            "sensor1": 500,
-            "sensor_time": "time"
-        },
-        {
-            "sensor1": 500,
-            "sensor_time": "time"
-        },
-        {
-            "sensor1": 500,
-            "sensor_time": "time"
-        }
-    ]
-
-    console.log(array.map((el) => {return el.sensor1}))
-
-
-
+export default function Detail(props) {
+    const { sensorType } = props.route.params
+    const [isSelected, setSelection] = useState(false);
+    const [average, setAverage] = useState(10);
+    const [lastWeekAverage, setLastWeekAverage] = useState(6);
+    const [min, setMin] = useState(4);
+    const [lastWeekMin, setLastWeekMin] = useState(8);
+    const [max, setMax] = useState(15);
+    const [lastWeekMax] = useState(23);
+    const [activated, setActivated] = useState(1);
+    const [lastWeekActivated, setLastWeekActivated] = useState(2);
+    
     return (
         <View
             style={{
