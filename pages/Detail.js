@@ -13,7 +13,7 @@ export default function Detail(props) {
     const [min, setMin] = useState(4);
     const [lastWeekMin, setLastWeekMin] = useState(8);
     const [max, setMax] = useState(15);
-    const [lastWeekMax] = useState(23);
+    const [lastWeekMax, setLastWeekMax] = useState(23);
     const [activated, setActivated] = useState(1);
     const [lastWeekActivated, setLastWeekActivated] = useState(2);
     const [responseData, setResponseData] = useState('');
@@ -51,8 +51,72 @@ export default function Detail(props) {
 
         try {
           const response = await axios.post(url, data);
-          console.log('Response data:', response.data);
-            setResponseData(JSON.stringify(response.data));
+          var sensor_data = response.data;
+          var sensor_data = sensor_data.splice(-2880);
+          var past_sensor_data = sensor_data.splice(-5760, -2880);
+          var sensor_array = sensor_data.map((el) => {return el[sensorType]});
+          var past_sensor_array = past_sensor_data.map((el) => {return el[sensorType]});
+          var total = 0;
+          var count = 0;
+          var min = 99999;
+          var max = 0;
+          var active_count = 0;
+          sensor_array.forEach((item) => {
+            total += item;
+            count ++;
+            if(item < min)
+            {
+                min = item;
+            }
+            if(item > max)
+            {
+                max = item;
+            }
+            if(item != 0)
+            {
+                active_count += 1;
+            }
+          });
+          var past_total = 0;
+          var past_count = 0;
+          var past_min = 99999;
+          var past_max = 0;
+          var past_active_count = 0;
+          past_sensor_array.forEach((item) => {
+            past_total += item;
+            past_count ++;
+            if(item < past_min)
+            {
+                past_min = item;
+            }
+            if(item > max)
+            {
+                past_max = item;
+            }
+            if(item != 0)
+            {
+                past_active_count += 1;
+            }
+          });
+          var avg = total/count;
+          var past_avg = past_total/past_count;
+          setAverage(Math.round(avg));
+          setMin(min)
+          setMax(max)
+          setActivated(Math.round(active_count/24));
+          if(!past_avg)
+          {
+            setLastWeekAverage(0);
+          }
+          else
+          {
+            setLastWeekAverage(Math.round(past_avg));
+          }
+
+          setLastWeekMin(past_min)
+          setLastWeekMax(past_max)
+          setLastWeekActivated(past_active_count)
+
         } catch (error) {
           console.error('Error:', error);
 
@@ -144,7 +208,11 @@ export default function Detail(props) {
                                 fontSize: hp(1.5)
                             }}
                         >
-                            {(average - lastWeekAverage) > 0 ?
+                            {
+                                lastWeekAverage == 0 ?
+                                '100%'
+                                :
+                                (average - lastWeekAverage) > 0 ?
                                 '+' + (((average - lastWeekAverage) / lastWeekAverage) * 100).toFixed(2) + '%'
                                 :
                                 (((average - lastWeekAverage) / lastWeekAverage) * 100).toFixed(2) + '%'
@@ -158,7 +226,7 @@ export default function Detail(props) {
                             color: '#bcbcbc'
                         }}
                     >
-                        Than Last Week
+                        Than Yesterday
                     </Text>
                 </View>
                 <View style={{
@@ -213,7 +281,11 @@ export default function Detail(props) {
                                 fontSize: hp(1.5)
                             }}
                         >
-                            {(min - lastWeekMin) > 0 ?
+                            {
+                                lastWeekMin == 0 ?
+                                '100%'
+                                :
+                                (min - lastWeekMin) > 0 ?
                                 '+' + (((min - lastWeekMin) / lastWeekMin) * 100).toFixed(2) + '%'
                                 :
                                 (((min - lastWeekMin) / lastWeekMin) * 100).toFixed(2) + '%'
@@ -227,7 +299,7 @@ export default function Detail(props) {
                             color: '#bcbcbc'
                         }}
                     >
-                        Than Last Week
+                        Than Yesterday
                     </Text>
                 </View>
             </View>
@@ -288,7 +360,11 @@ export default function Detail(props) {
                                 fontSize: hp(1.5)
                             }}
                         >
-                            {(max - lastWeekMax) > 0 ?
+                            {
+                                lastWeekMax == 0 ?
+                                '100%'
+                                :
+                                (max - lastWeekMax) > 0 ?
                                 '+' + (((max - lastWeekMax) / lastWeekMax) * 100).toFixed(2) + '%'
                                 :
                                 (((max - lastWeekMax) / lastWeekMax) * 100).toFixed(2) + '%'
@@ -302,7 +378,7 @@ export default function Detail(props) {
                             color: '#bcbcbc'
                         }}
                     >
-                        Than Last Week
+                        Than Yesterday
                     </Text>
                 </View>
                 <View style={{
@@ -357,7 +433,11 @@ export default function Detail(props) {
                                 fontSize: hp(1.5)
                             }}
                         >
-                            {(activated - lastWeekActivated) > 0 ?
+                            {
+                                lastWeekActivated == 0 ?
+                                '100%'
+                                :
+                                (activated - lastWeekActivated) > 0 ?
                                 '+' + (((activated - lastWeekActivated) / lastWeekActivated) * 100).toFixed(2) + '%'
                                 :
                                 (((activated - lastWeekActivated) / lastWeekActivated) * 100).toFixed(2) + '%'
@@ -371,7 +451,7 @@ export default function Detail(props) {
                             color: '#bcbcbc'
                         }}
                     >
-                        Than Last Week
+                        Than Yesterday
                     </Text>
                 </View>
             </View>
