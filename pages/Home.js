@@ -19,16 +19,16 @@ export default function Home() {
             .then(function (response) {
                 // handle success
                 var data = response.data;
-                var sen1 = data.sen1
-                var sen2 = data.sen2
-                var sen3 = data.sen3
-                var sen4 = data.sen4
-                var sen5 = data.sen5
-                setSensor1((data.sen1/1000));
-                setSensor2((data.sen2/1000));
-                setSensor3((data.sen3/1000));
-                setSensor4((data.sen4/1000));
-                setSensor5((data.sen5/1000));
+                var sen1 = data.sensor1
+                var sen2 = data.sensor2
+                var sen3 = data.sensor3
+                var sen4 = data.sensor4
+                var sen5 = data.sensor5
+                setSensor1((data.sensor1/1000));
+                setSensor2((data.sensor2/1000));
+                setSensor3((data.sensor3/1000));
+                setSensor4((data.sensor4/1000));
+                setSensor5((data.sensor5/1000));
 
                 
             })

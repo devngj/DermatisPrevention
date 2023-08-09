@@ -1,38 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, Dimensions, StyleSheet, ImageBackground, ScrollView } from "react-native";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-native-responsive-screen";
 import { LineChart } from "react-native-chart-kit";
 import { Icon } from "@rneui/themed";
+import axios from 'axios';
 
-const data = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "June"],
-    datasets: [
-        {
-            data: [
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100
-            ]
-        },
-        {
-            data: [
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100
-            ]
-        }
-    ]
-}
+export default function Detail(props) {
+    const { sensorType } = props.route.params
+    const [isSelected, setSelection] = useState(false);
+    const [average, setAverage] = useState(10);
+    const [lastWeekAverage, setLastWeekAverage] = useState(6);
+    const [min, setMin] = useState(4);
+    const [lastWeekMin, setLastWeekMin] = useState(8);
+    const [max, setMax] = useState(15);
+    const [lastWeekMax] = useState(23);
+    const [activated, setActivated] = useState(1);
+    const [lastWeekActivated, setLastWeekActivated] = useState(2);
+    const [responseData, setResponseData] = useState('');
 
-const [responseData, setResponseData] = useState('');
+    const data = {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "June"],
+        datasets: [
+            {
+                data: [
+                    Math.random() * 100,
+                    Math.random() * 100,
+                    Math.random() * 100,
+                    Math.random() * 100,
+                    Math.random() * 100,
+                    Math.random() * 100
+                ]
+            },
+            {
+                data: [
+                    Math.random() * 100,
+                    Math.random() * 100,
+                    Math.random() * 100,
+                    Math.random() * 100,
+                    Math.random() * 100,
+                    Math.random() * 100
+                ]
+            }
+        ]
+    }
+
     
-    /*
     const sendPostRequest = async () => {
         const url = "http://52.79.122.229:8000/get_sen_data";
         const data = { type: sensorType };
@@ -46,19 +58,10 @@ const [responseData, setResponseData] = useState('');
 
         }
       }
-      */
 
-export default function Detail(props) {
-    const { sensorType } = props.route.params
-    const [isSelected, setSelection] = useState(false);
-    const [average, setAverage] = useState(10);
-    const [lastWeekAverage, setLastWeekAverage] = useState(6);
-    const [min, setMin] = useState(4);
-    const [lastWeekMin, setLastWeekMin] = useState(8);
-    const [max, setMax] = useState(15);
-    const [lastWeekMax] = useState(23);
-    const [activated, setActivated] = useState(1);
-    const [lastWeekActivated, setLastWeekActivated] = useState(2);
+    useEffect(() => {
+        sendPostRequest();
+    }, [sensorType])
     
     return (
         <View
