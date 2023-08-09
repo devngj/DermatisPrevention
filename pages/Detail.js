@@ -18,8 +18,7 @@ export default function Detail(props) {
     const [lastWeekActivated, setLastWeekActivated] = useState(2);
     const [loading, setLoading] = useState(false);
     const [responseData, setResponseData] = useState('');
-
-    const data = {
+    const [data, setData] = useState({
         labels: ["Jan", "Feb", "Mar", "Apr", "May", "June"],
         datasets: [
             {
@@ -43,7 +42,7 @@ export default function Detail(props) {
                 ]
             }
         ]
-    }
+    })
 
 
     const sendPostRequest = async () => {
@@ -55,63 +54,73 @@ export default function Detail(props) {
             const response = await axios.post(url, data);
             setLoading(false);
             var sensor_data = response.data;
-            var sensor_data = sensor_data.splice(-2880);
-            var past_sensor_data = sensor_data.splice(-5760, -2880);
-            var sensor_array = sensor_data.map((el) => { return el[sensorType] });
-            var past_sensor_array = past_sensor_data.map((el) => { return el[sensorType] });
-            var total = 0;
-            var count = 0;
-            var min = 99999;
-            var max = 0;
-            var active_count = 0;
-            sensor_array.forEach((item) => {
-                total += item;
-                count++;
-                if (item < min) {
-                    min = item;
-                }
-                if (item > max) {
-                    max = item;
-                }
-                if (item != 0) {
-                    active_count += 1;
-                }
-            });
-            var past_total = 0;
-            var past_count = 0;
-            var past_min = 99999;
-            var past_max = 0;
-            var past_active_count = 0;
-            past_sensor_array.forEach((item) => {
-                past_total += item;
-                past_count++;
-                if (item < past_min) {
-                    past_min = item;
-                }
-                if (item > max) {
-                    past_max = item;
-                }
-                if (item != 0) {
-                    past_active_count += 1;
-                }
-            });
-            var avg = total / count;
-            var past_avg = past_total / past_count;
-            setAverage(Math.round(avg));
-            setMin(min)
-            setMax(max)
-            setActivated(Math.round(active_count / 24));
-            if (!past_avg) {
-                setLastWeekAverage(0);
+            if(sensorType == "all")
+            {
+                ["sensor1", "sensor2", "sensor3", "sensor4", "sensor5"].forEach((sensor) => {
+                    console.log(sensor)
+                })
             }
-            else {
-                setLastWeekAverage(Math.round(past_avg));
+            else
+            {
+                var sensor_data = sensor_data.splice(-2880);
+                var past_sensor_data = sensor_data.splice(-5760, -2880);
+                var sensor_array = sensor_data.map((el) => { return el[sensorType] });
+                var past_sensor_array = past_sensor_data.map((el) => { return el[sensorType] });
+                var total = 0;
+                var count = 0;
+                var min = 99999;
+                var max = 0;
+                var active_count = 0;
+                sensor_array.forEach((item) => {
+                    total += item;
+                    count++;
+                    if (item < min) {
+                        min = item;
+                    }
+                    if (item > max) {
+                        max = item;
+                    }
+                    if (item != 0) {
+                        active_count += 1;
+                    }
+                });
+                var past_total = 0;
+                var past_count = 0;
+                var past_min = 99999;
+                var past_max = 0;
+                var past_active_count = 0;
+                past_sensor_array.forEach((item) => {
+                    past_total += item;
+                    past_count++;
+                    if (item < past_min) {
+                        past_min = item;
+                    }
+                    if (item > max) {
+                        past_max = item;
+                    }
+                    if (item != 0) {
+                        past_active_count += 1;
+                    }
+                });
+                var avg = total / count;
+                var past_avg = past_total / past_count;
+                setAverage(Math.round(avg));
+                setMin(min)
+                setMax(max)
+                setActivated(Math.round(active_count / 24));
+                if (!past_avg) {
+                    setLastWeekAverage(0);
+                }
+                else {
+                    setLastWeekAverage(Math.round(past_avg));
+                }
+    
+                setLastWeekMin(past_min)
+                setLastWeekMax(past_max)
+                setLastWeekActivated(past_active_count)
+    
             }
-
-            setLastWeekMin(past_min)
-            setLastWeekMax(past_max)
-            setLastWeekActivated(past_active_count)
-
+            
         } catch (error) {
             console.error('Error:', error);
 

@@ -35,10 +35,6 @@ const LoginScreen = ({ navigation }) => {
     const [loading, setLoading] = useState(false);
 
     const login = async () => {
-        navigation.reset({
-            routes: [{ name: 'HomeStackScreen' }]
-        });
-        return;
         setEmailError("");
         setPasswordError("");
         if (email == "") {
